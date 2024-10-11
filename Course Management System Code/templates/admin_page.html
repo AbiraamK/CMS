@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Admin Page</h1>
+    <form action="{{ url_for('admin_page') }}" method="POST">
+        <div class="form-group">
+            <label for="query">SQL Query:</label>
+            <textarea class="form-control" id="query" name="query" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Execute</button>
+    </form>
+
+    {% if query_result %}
+        <hr>
+        <h2>Query Result:</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    {% for key in query_result[0].keys() %}
+                        <th>{{ key }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in query_result %}
+                    <tr>
+                        {% for value in row.values() %}
+                            <td>{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

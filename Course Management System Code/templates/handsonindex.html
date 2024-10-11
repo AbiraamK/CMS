@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <title>SQL</title>
+</head>
+<body>
+    <h1>Bonus Hands On</h1>
+    <form method="POST">
+        <textarea name="query" rows="5" cols="50" placeholder="Only takes 'select' and 'insert' commands "></textarea>
+        <br>
+        <button type="submit">Run</button>
+    </form>
+    <h2>Results:</h2>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    {% if columns and data %}
+        <table border="1">
+            <tr>
+                {% for column in columns %}
+                    <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+            {% for row in data %}
+                <tr>
+                    {% for cell in row %}
+                        <td>{{ cell }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>

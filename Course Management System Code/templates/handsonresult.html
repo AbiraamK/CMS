@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Bonus Hands On</title>
+  </head>
+  <body>
+    <h1>SQL Console</h1>
+    {% if result %}
+    <table border="1">
+      <tr>
+        {% for column in column_names %}
+        <th>{{ column }}</th>
+        {% endfor %}
+      </tr>
+      {% for row in result %}
+      <tr>
+        {% for column in column_names %}
+        <td>{{ row[column] }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>No result found.</p>
+    {% endif %}
+  </body>
+</html>

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>Admin Associations</h1>
+  <h2>Students and their Courses</h2>
+  <table style="border-collapse: separate; border-spacing: 2em 1.5em;">
+    <tr>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Course ID</th>
+      <th>Course Name</th>
+    </tr>
+    {% for student in students %}
+      <tr>
+        <td>{{ student.name }}</td>
+        <td>{{ student.username }}</td>
+        <td>{{ student.course_id }}</td>
+        <td>{{ student.course_name }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+<br><br>
+
+  <h2>Teachers and their Courses</h2>
+  <table style="border-collapse: separate; border-spacing: 2em 1.5em;">
+    <tr>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Course ID</th>
+      <th>Course Name</th>
+    </tr>
+    {% for teacher in teachers %}
+      <tr>
+        <td>{{ teacher.name }}</td>
+        <td>{{ teacher.username }}</td>
+        <td>{{ teacher.course_id }}</td>
+        <td>{{ teacher.course_name }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+<br><br>
+
+  <h2>Teaching Assistants and their Courses</h2>
+  <table style="border-collapse: separate; border-spacing: 2em 1.5em;">
+    <tr>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Course ID</th>
+      <th>Course Name</th>
+    </tr>
+    {% for ta in tas %}
+      <tr>
+        <td>{{ ta.name }}</td>
+        <td>{{ ta.username }}</td>
+        <td>{{ ta.course_id }}</td>
+        <td>{{ ta.course_name }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
